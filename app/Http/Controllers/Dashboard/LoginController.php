@@ -24,4 +24,15 @@ public function postlogin(AdminLoginRequest $request){
     return redirect()->back()->with(['error'=>'الرجاء التاكد من ادخال البيتات بصوره صحيحه']);
 
 }
+
+
+public function logout(){
+    $gaurd = $this->getGaurd();
+    $gaurd->logout();
+
+    return redirect()->route('admin.login');
+}
+private function getGaurd(){
+    return auth('admin');
+}
 }
