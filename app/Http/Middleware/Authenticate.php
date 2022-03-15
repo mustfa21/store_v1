@@ -15,10 +15,12 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            if(Request::is(app()->getFolder().'/admin/*'))
+
+            if(Request::is(app()->getLocale().'/admin/*'))
             return route('admin.login');
             else
-            return route('login');
+            return route('login');$this.array_key_first()fbird_restore()
         }
+
     }
 }
